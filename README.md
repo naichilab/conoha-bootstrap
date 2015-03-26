@@ -55,12 +55,6 @@ Chef-Soloを使ってConoHa VPSにRails環境を構築する。
 
 chefユーザでSSHできた。
 
-# knife solo prepare
-1. knife solo prepare conoha
-2. $ ssh conoha
-2. $ chef-solo -v
-Chef: 12.1.1
-
 # ローカルでknife solo init
 1. cd ~
 2. knife solo init conoha-bootstrap
@@ -70,3 +64,28 @@ Chef: 12.1.1
 6. git commit -m 'first commit'
 7. git remote add origin git@github.com:naichilab/conoha-bootstrap.git
 8. git push -u origin master
+
+# knife solo prepare
+1. knife solo prepare conoha
+2. $ ssh conoha
+3. $ chef-solo -v
+Chef: 12.1.1
+4. $ logout
+5. git add nodes/conoha.json
+6. git commit -m 'add node json'
+
+# helloworld
+1. knife cookbook create helloworld -o site-cookbooks/
+2. site-cookbooks/helloworld/recipes/default.rb
+log "Hello World!!"
+3. nodes/conoha.json
+"recipe[helloworld]"
+4. knife solo cook conoha
+表示を確認。
+
+
+
+
+
+
+#
