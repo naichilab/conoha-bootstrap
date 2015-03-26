@@ -6,13 +6,13 @@ Chef-Soloを使ってConoHa VPSにRails環境を構築する。
 2. テンプレートイメージのCentOS6.5
 
 # ローカル側の準備
-1. ConoHa コンソールから秘密鍵ダウンロード
-2. ダウンロードした6265598-1.keyを~/.ssh/にコピー
-3. 6265598-1.keyをリネーム->conoha_private_key
+1. ConoHaコンソールから秘密鍵ダウンロード
+2. ダウンロードした1234567-1.keyを~/.ssh/にコピー
+3. 1234567-1.keyをリネーム->conoha_private_key
 4. $ chmod 600 ~/.ssh/conoha_private_key
 4. ~/.ssh/config
         Host conoha
-          HostName	157.7.84.186
+          HostName	[VPSのIP]
           IdentityFile	~/.ssh/conoha_private_key
           User		root
 5. ssh conoha
@@ -46,7 +46,7 @@ Chef-Soloを使ってConoHa VPSにRails環境を構築する。
 # もいちどローカル側の準備
 4. ~/.ssh/config
         Host conoha
-          HostName	157.7.84.186
+          HostName	[VPSのIP]
           IdentityFile	~/.ssh/conoha_private_key
           User		chef
 5. ssh conoha
@@ -60,3 +60,13 @@ chefユーザでSSHできた。
 2. $ ssh conoha
 2. $ chef-solo -v
 Chef: 12.1.1
+
+# ローカルでknife solo init
+1. cd ~
+2. knife solo init conoha-bootstrap
+3. cd conoha-bootstrap
+4. git init
+5. git add .
+6. git commit -m 'first commit'
+7. git remote add origin git@github.com:naichilab/conoha-bootstrap.git
+8. git push -u origin master
