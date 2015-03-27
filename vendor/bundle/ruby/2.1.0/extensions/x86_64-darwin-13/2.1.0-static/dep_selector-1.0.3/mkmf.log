@@ -1,0 +1,188 @@
+find_library: checking for main() in -lgecodesupport... -------------------- yes
+
+"clang -o conftest -I/Users/hu/.rbenv/versions/2.1.5/include/ruby-2.1.0/x86_64-darwin13.0 -I/Users/hu/.rbenv/versions/2.1.5/include/ruby-2.1.0/ruby/backward -I/Users/hu/.rbenv/versions/2.1.5/include/ruby-2.1.0 -I. -I/Users/hu/.rbenv/versions/2.1.5/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe conftest.c  -L. -L/Users/hu/.rbenv/versions/2.1.5/lib -L. -L/Users/hu/.rbenv/versions/2.1.5/lib  -fstack-protector     -lruby-static -framework CoreFoundation  -lpthread -ldl -lobjc "
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main(int argc, char **argv)
+4: {
+5:   return 0;
+6: }
+/* end */
+
+"clang -o conftest -I/Users/hu/.rbenv/versions/2.1.5/include/ruby-2.1.0/x86_64-darwin13.0 -I/Users/hu/.rbenv/versions/2.1.5/include/ruby-2.1.0/ruby/backward -I/Users/hu/.rbenv/versions/2.1.5/include/ruby-2.1.0 -I. -I/Users/hu/.rbenv/versions/2.1.5/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe conftest.c  -L. -L/Users/hu/.rbenv/versions/2.1.5/lib -L. -L/Users/hu/.rbenv/versions/2.1.5/lib  -fstack-protector     -lruby-static -framework CoreFoundation -lgecodesupport  -lpthread -ldl -lobjc "
+ld: library not found for -lgecodesupport
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     printf("%p", &t);
+ 9:   }
+10: 
+11:   return 0;
+12: }
+13: int t(void) { void ((*volatile p)()); p = (void ((*)()))main; return 0; }
+/* end */
+
+"clang -o conftest -I/Users/hu/.rbenv/versions/2.1.5/include/ruby-2.1.0/x86_64-darwin13.0 -I/Users/hu/.rbenv/versions/2.1.5/include/ruby-2.1.0/ruby/backward -I/Users/hu/.rbenv/versions/2.1.5/include/ruby-2.1.0 -I. -I/Users/hu/.rbenv/versions/2.1.5/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe conftest.c  -L. -L/Users/hu/.rbenv/versions/2.1.5/lib -L. -L/Users/hu/.rbenv/versions/2.1.5/lib  -fstack-protector     -lruby-static -framework CoreFoundation -lgecodesupport  -lpthread -ldl -lobjc "
+conftest.c:13:20: error: too few arguments to function call, expected 2, have 0
+int t(void) { main(); return 0; }
+              ~~~~ ^
+conftest.c:5:1: note: 'main' declared here
+int main(int argc, char **argv)
+^
+1 error generated.
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     printf("%p", &t);
+ 9:   }
+10: 
+11:   return 0;
+12: }
+13: int t(void) { main(); return 0; }
+/* end */
+
+"clang -o conftest -I/Users/hu/.rbenv/versions/2.1.5/include/ruby-2.1.0/x86_64-darwin13.0 -I/Users/hu/.rbenv/versions/2.1.5/include/ruby-2.1.0/ruby/backward -I/Users/hu/.rbenv/versions/2.1.5/include/ruby-2.1.0 -I. -I/Users/hu/.rbenv/versions/2.1.5/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe conftest.c  -L. -L/Users/hu/.rbenv/versions/2.1.5/lib -L/Users/hu/conoha-bootstrap/vendor/bundle/ruby/2.1.0/gems/dep-selector-libgecode-1.0.2/lib/dep-selector-libgecode/vendored-gecode/lib -L. -L/Users/hu/.rbenv/versions/2.1.5/lib  -fstack-protector     -lruby-static -framework CoreFoundation -lgecodesupport  -lpthread -ldl -lobjc "
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     printf("%p", &t);
+ 9:   }
+10: 
+11:   return 0;
+12: }
+13: int t(void) { void ((*volatile p)()); p = (void ((*)()))main; return 0; }
+/* end */
+
+--------------------
+
+have_library: checking for main() in -lgecodesupport... -------------------- yes
+
+"clang -o conftest -I/Users/hu/.rbenv/versions/2.1.5/include/ruby-2.1.0/x86_64-darwin13.0 -I/Users/hu/.rbenv/versions/2.1.5/include/ruby-2.1.0/ruby/backward -I/Users/hu/.rbenv/versions/2.1.5/include/ruby-2.1.0 -I. -I/Users/hu/conoha-bootstrap/vendor/bundle/ruby/2.1.0/gems/dep-selector-libgecode-1.0.2/lib/dep-selector-libgecode/vendored-gecode/include -I/Users/hu/.rbenv/versions/2.1.5/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe conftest.c  -L. -L/Users/hu/.rbenv/versions/2.1.5/lib -L/Users/hu/conoha-bootstrap/vendor/bundle/ruby/2.1.0/gems/dep-selector-libgecode-1.0.2/lib/dep-selector-libgecode/vendored-gecode/lib -L. -L/Users/hu/.rbenv/versions/2.1.5/lib  -fstack-protector    -lgecodesupport  -lruby-static -framework CoreFoundation -lgecodesupport -lgecodesupport  -lpthread -ldl -lobjc "
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     printf("%p", &t);
+ 9:   }
+10: 
+11:   return 0;
+12: }
+13: int t(void) { void ((*volatile p)()); p = (void ((*)()))main; return 0; }
+/* end */
+
+--------------------
+
+have_library: checking for main() in -lgecodekernel... -------------------- yes
+
+"clang -o conftest -I/Users/hu/.rbenv/versions/2.1.5/include/ruby-2.1.0/x86_64-darwin13.0 -I/Users/hu/.rbenv/versions/2.1.5/include/ruby-2.1.0/ruby/backward -I/Users/hu/.rbenv/versions/2.1.5/include/ruby-2.1.0 -I. -I/Users/hu/conoha-bootstrap/vendor/bundle/ruby/2.1.0/gems/dep-selector-libgecode-1.0.2/lib/dep-selector-libgecode/vendored-gecode/include -I/Users/hu/.rbenv/versions/2.1.5/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe conftest.c  -L. -L/Users/hu/.rbenv/versions/2.1.5/lib -L/Users/hu/conoha-bootstrap/vendor/bundle/ruby/2.1.0/gems/dep-selector-libgecode-1.0.2/lib/dep-selector-libgecode/vendored-gecode/lib -L. -L/Users/hu/.rbenv/versions/2.1.5/lib  -fstack-protector    -lgecodesupport -lgecodesupport  -lruby-static -framework CoreFoundation -lgecodekernel -lgecodesupport -lgecodesupport  -lpthread -ldl -lobjc "
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     printf("%p", &t);
+ 9:   }
+10: 
+11:   return 0;
+12: }
+13: int t(void) { void ((*volatile p)()); p = (void ((*)()))main; return 0; }
+/* end */
+
+--------------------
+
+have_library: checking for main() in -lgecodeint... -------------------- yes
+
+"clang -o conftest -I/Users/hu/.rbenv/versions/2.1.5/include/ruby-2.1.0/x86_64-darwin13.0 -I/Users/hu/.rbenv/versions/2.1.5/include/ruby-2.1.0/ruby/backward -I/Users/hu/.rbenv/versions/2.1.5/include/ruby-2.1.0 -I. -I/Users/hu/conoha-bootstrap/vendor/bundle/ruby/2.1.0/gems/dep-selector-libgecode-1.0.2/lib/dep-selector-libgecode/vendored-gecode/include -I/Users/hu/.rbenv/versions/2.1.5/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe conftest.c  -L. -L/Users/hu/.rbenv/versions/2.1.5/lib -L/Users/hu/conoha-bootstrap/vendor/bundle/ruby/2.1.0/gems/dep-selector-libgecode-1.0.2/lib/dep-selector-libgecode/vendored-gecode/lib -L. -L/Users/hu/.rbenv/versions/2.1.5/lib  -fstack-protector    -lgecodekernel -lgecodesupport -lgecodesupport  -lruby-static -framework CoreFoundation -lgecodeint -lgecodekernel -lgecodesupport -lgecodesupport  -lpthread -ldl -lobjc "
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     printf("%p", &t);
+ 9:   }
+10: 
+11:   return 0;
+12: }
+13: int t(void) { void ((*volatile p)()); p = (void ((*)()))main; return 0; }
+/* end */
+
+--------------------
+
+have_library: checking for main() in -lgecodeminimodel... -------------------- yes
+
+"clang -o conftest -I/Users/hu/.rbenv/versions/2.1.5/include/ruby-2.1.0/x86_64-darwin13.0 -I/Users/hu/.rbenv/versions/2.1.5/include/ruby-2.1.0/ruby/backward -I/Users/hu/.rbenv/versions/2.1.5/include/ruby-2.1.0 -I. -I/Users/hu/conoha-bootstrap/vendor/bundle/ruby/2.1.0/gems/dep-selector-libgecode-1.0.2/lib/dep-selector-libgecode/vendored-gecode/include -I/Users/hu/.rbenv/versions/2.1.5/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe conftest.c  -L. -L/Users/hu/.rbenv/versions/2.1.5/lib -L/Users/hu/conoha-bootstrap/vendor/bundle/ruby/2.1.0/gems/dep-selector-libgecode-1.0.2/lib/dep-selector-libgecode/vendored-gecode/lib -L. -L/Users/hu/.rbenv/versions/2.1.5/lib  -fstack-protector    -lgecodeint -lgecodekernel -lgecodesupport -lgecodesupport  -lruby-static -framework CoreFoundation -lgecodeminimodel -lgecodeint -lgecodekernel -lgecodesupport -lgecodesupport  -lpthread -ldl -lobjc "
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     printf("%p", &t);
+ 9:   }
+10: 
+11:   return 0;
+12: }
+13: int t(void) { void ((*volatile p)()); p = (void ((*)()))main; return 0; }
+/* end */
+
+--------------------
+
+have_library: checking for main() in -lgecodesearch... -------------------- yes
+
+"clang -o conftest -I/Users/hu/.rbenv/versions/2.1.5/include/ruby-2.1.0/x86_64-darwin13.0 -I/Users/hu/.rbenv/versions/2.1.5/include/ruby-2.1.0/ruby/backward -I/Users/hu/.rbenv/versions/2.1.5/include/ruby-2.1.0 -I. -I/Users/hu/conoha-bootstrap/vendor/bundle/ruby/2.1.0/gems/dep-selector-libgecode-1.0.2/lib/dep-selector-libgecode/vendored-gecode/include -I/Users/hu/.rbenv/versions/2.1.5/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe conftest.c  -L. -L/Users/hu/.rbenv/versions/2.1.5/lib -L/Users/hu/conoha-bootstrap/vendor/bundle/ruby/2.1.0/gems/dep-selector-libgecode-1.0.2/lib/dep-selector-libgecode/vendored-gecode/lib -L. -L/Users/hu/.rbenv/versions/2.1.5/lib  -fstack-protector    -lgecodeminimodel -lgecodeint -lgecodekernel -lgecodesupport -lgecodesupport  -lruby-static -framework CoreFoundation -lgecodesearch -lgecodeminimodel -lgecodeint -lgecodekernel -lgecodesupport -lgecodesupport  -lpthread -ldl -lobjc "
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     printf("%p", &t);
+ 9:   }
+10: 
+11:   return 0;
+12: }
+13: int t(void) { void ((*volatile p)()); p = (void ((*)()))main; return 0; }
+/* end */
+
+--------------------
+
