@@ -1,6 +1,7 @@
 {
   "run_list": [
-    "recipe[helloworld]"
+    "recipe[yum-epel]",
+    "recipe[nginx]"
   ],
   "automatic": {
     "ipaddress": "vm"
