@@ -83,6 +83,16 @@ log "Hello World!!"
 4. knife solo cook conoha
 表示を確認。
 
+# bundler
+1. bundle init
+2. GemFile
+3. bunfle install
+
+# nginx
+1. bundle exec knife cookbook create nginx -o ./site-cookbooks
+2. recipe編集
+3. yum-epelが必要なのでberksfileに追加
+4. bundle exec berks ./cookbooks
 
 
 

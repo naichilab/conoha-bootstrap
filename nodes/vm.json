@@ -1,7 +1,8 @@
 {
   "run_list": [
     "recipe[yum-epel]",
-    "recipe[nginx]"
+    "recipe[nginx]",
+    "recipe[ruby-env]"
   ],
   "automatic": {
     "ipaddress": "vm"
