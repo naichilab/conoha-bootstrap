@@ -1,4 +1,8 @@
 {
+  "ruby-env":{
+    "user": "vagrant",
+    "group": "vagrant"
+  },
   "run_list": [
     "recipe[yum-epel]",
     "recipe[nginx]",

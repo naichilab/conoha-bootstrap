@@ -28,7 +28,7 @@ Chef-Soloを使ってConoHa VPSにRails環境を構築する。
     2. chef ALL=(ALL) NOPASSWD:ALL
 4. \# mkdir /home/chef/.ssh
 5. \# cp ~/.ssh/authorized_keys /home/chef/.ssh/
-6. \# cd /home/chef/.ssh
+6. \# cd /home/chef/.ssh/
 7. \# ls -la
         drwxr-xr-x 2 root root 4096  3月 27 01:29 2015 .
         drwx------ 3 chef chef 4096  3月 27 01:28 2015 ..

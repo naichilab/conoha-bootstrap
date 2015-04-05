@@ -1,4 +1,11 @@
-%w{git openssl-devel sqlite-devel}.each do |pkg|
+user "deploy" do
+  supports :manage_home => true
+  home "/home/deploy"
+  shell "/bin/bash"
+  password "$1$nc/1.SNG$0Rk7a43k8eJJ5xvFNpQ0b."
+end
+
+%w{git gcc gcc-c++ openssl-devel readline-devel sqlite-devel}.each do |pkg|
   package pkg do
     action :install
   end
@@ -23,7 +30,7 @@ end
 directory "/home/#{node['ruby-env']['user']}/.rbenv/plugins" do
   owner node['ruby-env']['user']
   group node['ruby-env']['group']
-  mode 0755
+  mode '0755'
   action :create
 end
 
@@ -40,4 +47,12 @@ execute "rbenv install #{node['ruby-env']['version']}" do
   group node['ruby-env']['group']
   environment 'HOME' => "/home/#{node['ruby-env']['user']}"
   not_if { File.exists?("/home/#{node['ruby-env']['user']}/.rbenv/versions/#{node['ruby-env']['version']}")}
+end
+
+execute "rbenv global #{node['ruby-env']['version']}" do
+  command "/home/#{node['ruby-env']['user']}/.rbenv/bin/rbenv global #{node['ruby-env']['version']}"
+  user node['ruby-env']['user']
+  group node['ruby-env']['group']
+  environment 'HOME' => "/home/#{node['ruby-env']['user']}"
+  only_if { File.exists?("/home/#{node['ruby-env']['user']}/.rbenv/versions/#{node['ruby-env']['version']}")}
 end
