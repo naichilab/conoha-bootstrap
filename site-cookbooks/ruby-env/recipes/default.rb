@@ -1,3 +1,4 @@
+# 実行ユーザ作成
 user "deploy" do
   supports :manage_home => true
   home "/home/deploy"
@@ -5,12 +6,14 @@ user "deploy" do
   password "$1$nc/1.SNG$0Rk7a43k8eJJ5xvFNpQ0b."
 end
 
+# ruby用パッケージインストール
 %w{git gcc gcc-c++ openssl-devel readline-devel sqlite-devel}.each do |pkg|
   package pkg do
     action :install
   end
 end
 
+# rbenvとruby-buildをインストール
 git "/home/#{node['ruby-env']['user']}/.rbenv" do
   repository node["ruby-env"]["rbenv_url"]
   action :sync
@@ -41,6 +44,7 @@ git "/home/#{node['ruby-env']['user']}/.rbenv/plugins/ruby-build" do
   group node['ruby-env']['group']
 end
 
+# rbenvを使ってrubyをインストール
 execute "rbenv install #{node['ruby-env']['version']}" do
   command "/home/#{node['ruby-env']['user']}/.rbenv/bin/rbenv install #{node['ruby-env']['version']}"
   user node['ruby-env']['user']
@@ -54,5 +58,15 @@ execute "rbenv global #{node['ruby-env']['version']}" do
   user node['ruby-env']['user']
   group node['ruby-env']['group']
   environment 'HOME' => "/home/#{node['ruby-env']['user']}"
-  only_if { File.exists?("/home/#{node['ruby-env']['user']}/.rbenv/versions/#{node['ruby-env']['version']}")}
+end
+
+# gem [rbenv-rehash bundler]をインストール 
+%w{rbenv-rehash bundler}.each do |gem|
+  execute "gem install #{gem}" do
+    command "/home/#{node['ruby-env']['user']}/.rbenv/shims/gem install #{gem}"
+    user node['ruby-env']['user']
+    group node['ruby-env']['group']
+    environment 'HOME' => "/home/#{node['ruby-env']['user']}"
+    not_if "/home/#{node['ruby-env']['user']}/.rbenv/shims/gem list | grep #{gem}"
+  end
 end
