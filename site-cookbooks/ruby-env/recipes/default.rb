@@ -7,7 +7,7 @@ user "deploy" do
 end
 
 # ruby用パッケージインストール
-%w{git gcc gcc-c++ openssl-devel readline-devel sqlite-devel}.each do |pkg|
+%w{gcc gcc-c++ openssl-devel readline-devel sqlite-devel}.each do |pkg|
   package pkg do
     action :install
   end
@@ -58,9 +58,10 @@ execute "rbenv global #{node['ruby-env']['version']}" do
   user node['ruby-env']['user']
   group node['ruby-env']['group']
   environment 'HOME' => "/home/#{node['ruby-env']['user']}"
+  not_if "/home/#{node['ruby-env']['user']}/.rbenv/bin/rbenv global | grep '#{node['ruby-env']['version']}'"
 end
 
-# gem [rbenv-rehash bundler]をインストール 
+# gem [rbenv-rehash bundler]をインストール
 %w{rbenv-rehash bundler}.each do |gem|
   execute "gem install #{gem}" do
     command "/home/#{node['ruby-env']['user']}/.rbenv/shims/gem install #{gem}"

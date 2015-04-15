@@ -4,8 +4,9 @@
     "group": "vagrant"
   },
   "run_list": [
+    /*"recipe[git]",
     "recipe[yum-epel]",
-    "recipe[nginx]",
+    "recipe[nginx]",*/
     "recipe[ruby-env]"
   ],
   "automatic": {
