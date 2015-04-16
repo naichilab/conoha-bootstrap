@@ -3,10 +3,13 @@
     "user": "vagrant",
     "group": "vagrant"
   },
+  "nginx":{
+    "env":["ruby"]
+  },
   "run_list": [
-    /*"recipe[git]",
+    "recipe[git]",
     "recipe[yum-epel]",
-    "recipe[nginx]",*/
+    "recipe[nginx]",
     "recipe[ruby-env]"
   ],
   "automatic": {
