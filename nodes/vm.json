@@ -10,7 +10,8 @@
     "recipe[git]",
     "recipe[yum-epel]",
     "recipe[nginx]",
-    "recipe[ruby-env]"
+    "recipe[ruby-env]",
+    "recipe[nodejs]"
   ],
   "automatic": {
     "ipaddress": "vm"

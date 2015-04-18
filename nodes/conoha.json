@@ -1,8 +1,17 @@
 {
+  "ruby-env":{
+    "user": "rails",
+    "group": "rails"
+  },
+  "nginx":{
+    "env":["ruby"]
+  },
   "run_list": [
+    "recipe[git]",
     "recipe[yum-epel]",
     "recipe[nginx]",
-    "recipe[ruby-env]"
+    "recipe[ruby-env]",
+    "recipe[nodejs]"
   ],
   "automatic": {
     "ipaddress": "conoha"
