@@ -1,0 +1,15 @@
+/Users/hu/.rbenv/versions/2.2.2/bin/ruby -r ./siteconf20150505-4955-9jx298.rb extconf.rb
+creating Makefile
+/Users/hu/conoha-bootstrap/vendor/bundle/ruby/2.2.0/gems/libyajl2-1.2.0/ext/libyajl2
+
+make "DESTDIR=" clean
+make: *** No rule to make target `clean'.  Stop.
+
+make "DESTDIR="
+make: Nothing to be done for `all'.
+
+make "DESTDIR=" install
+mkdir -p /Users/hu/conoha-bootstrap/vendor/bundle/ruby/2.2.0/gems/libyajl2-1.2.0/lib/libyajl2/vendored-libyajl2/lib
+cp libyajl.bundle /Users/hu/conoha-bootstrap/vendor/bundle/ruby/2.2.0/gems/libyajl2-1.2.0/lib/libyajl2/vendored-libyajl2/lib/libyajl.bundle
+mkdir -p /Users/hu/conoha-bootstrap/vendor/bundle/ruby/2.2.0/gems/libyajl2-1.2.0/lib/libyajl2/vendored-libyajl2/include/yajl
+cp yajl/*.h /Users/hu/conoha-bootstrap/vendor/bundle/ruby/2.2.0/gems/libyajl2-1.2.0/lib/libyajl2/vendored-libyajl2/include/yajl

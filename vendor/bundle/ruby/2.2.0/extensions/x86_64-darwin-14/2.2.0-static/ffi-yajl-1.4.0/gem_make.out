@@ -1,0 +1,14 @@
+/Users/hu/.rbenv/versions/2.2.2/bin/ruby -r ./siteconf20150505-4955-1euz2wv.rb extconf.rb
+-I/Users/hu/conoha-bootstrap/vendor/bundle/ruby/2.2.0/gems/libyajl2-1.2.0/lib/libyajl2/vendored-libyajl2/include  -O3 -Wno-error=shorten-64-to-32  -pipe
+-L/Users/hu/conoha-bootstrap/vendor/bundle/ruby/2.2.0/gems/libyajl2-1.2.0/lib/libyajl2/vendored-libyajl2/lib -L. -L/Users/hu/.rbenv/versions/2.2.2/lib  -fstack-protector
+checking for yajl/yajl_tree.h... yes
+creating Makefile
+
+make "DESTDIR=" clean
+
+make "DESTDIR="
+compiling parser.c
+linking shared-object ffi_yajl/ext/parser.bundle
+
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 parser.bundle ./.gem.20150505-4955-1x1xols/ffi_yajl/ext

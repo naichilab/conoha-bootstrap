@@ -1,0 +1,23 @@
+find_header: checking for yajl/yajl_tree.h... -------------------- yes
+
+"clang -o conftest -I/Users/hu/.rbenv/versions/2.2.2/include/ruby-2.2.0/x86_64-darwin14 -I/Users/hu/.rbenv/versions/2.2.2/include/ruby-2.2.0/ruby/backward -I/Users/hu/.rbenv/versions/2.2.2/include/ruby-2.2.0 -I. -I/Users/hu/.rbenv/versions/2.2.2/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -I/Users/hu/conoha-bootstrap/vendor/bundle/ruby/2.2.0/gems/libyajl2-1.2.0/lib/libyajl2/vendored-libyajl2/include  -O3 -Wno-error=shorten-64-to-32  -pipe -Wall conftest.c  -L. -L/Users/hu/.rbenv/versions/2.2.2/lib -L/Users/hu/conoha-bootstrap/vendor/bundle/ruby/2.2.0/gems/libyajl2-1.2.0/lib/libyajl2/vendored-libyajl2/lib -L. -L/Users/hu/.rbenv/versions/2.2.2/lib  -fstack-protector     -lruby-static -framework CoreFoundation  -lpthread -ldl -lobjc "
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main(int argc, char **argv)
+4: {
+5:   return 0;
+6: }
+/* end */
+
+"clang -E -I/Users/hu/.rbenv/versions/2.2.2/include/ruby-2.2.0/x86_64-darwin14 -I/Users/hu/.rbenv/versions/2.2.2/include/ruby-2.2.0/ruby/backward -I/Users/hu/.rbenv/versions/2.2.2/include/ruby-2.2.0 -I. -I/Users/hu/.rbenv/versions/2.2.2/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -I/Users/hu/conoha-bootstrap/vendor/bundle/ruby/2.2.0/gems/libyajl2-1.2.0/lib/libyajl2/vendored-libyajl2/include  -O3 -Wno-error=shorten-64-to-32  -pipe -Wall  conftest.c -o conftest.i"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <yajl/yajl_tree.h>
+/* end */
+
+--------------------
+
