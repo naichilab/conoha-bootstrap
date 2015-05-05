@@ -1,7 +1,7 @@
 {
   "ruby-env":{
-    "user": "rails",
-    "group": "rails"
+    "user": "deploy",
+    "group": "deploy"
   },
   "nginx":{
     "env":["ruby"]

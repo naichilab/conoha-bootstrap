@@ -3,7 +3,7 @@ user "deploy" do
   supports :manage_home => true
   home "/home/deploy"
   shell "/bin/bash"
-  password "$1$nc/1.SNG$0Rk7a43k8eJJ5xvFNpQ0b."
+  password "$1$iw/Hx/fZ$ZDLJInY5ui7Ss1YYEG.XJ."
 end
 
 # ruby用パッケージインストール

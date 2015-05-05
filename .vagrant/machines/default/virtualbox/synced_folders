@@ -1,1 +1,1 @@
-{"virtualbox":{"/vagrant":{"guestpath":"/vagrant","hostpath":"/Users/hu/vagrant-shared","disabled":false}}}
+{"virtualbox":{"/vagrant":{"guestpath":"/vagrant","hostpath":"/Users/hu/conoha-bootstrap","disabled":false},"/home/vagrant/unityroom":{"guestpath":"/home/vagrant/unityroom","hostpath":"/Users/hu/vagrant-unityroom","disabled":false},"/home/vagrant/railstutorial":{"guestpath":"/home/vagrant/railstutorial","hostpath":"/Users/hu/vagrant-railstutorial","disabled":false}}}
